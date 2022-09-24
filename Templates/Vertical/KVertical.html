@@ -1,0 +1,51 @@
+<div KVertical class="card KTableDivClass d-print-none" data-pk="{{KData.TableInfo.PK}}"
+    data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+    data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+    <div class="card-header">
+        {{> Vertical/KVertical/CardHeader/Search/KSearchRow}}
+    </div>
+    <div class="card-body KCardBody">
+        {{> Vertical/KVertical/CardBody}}
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
+            <div class="col">
+                <button
+                    onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Vertical.SaveFuncs.StartFunc(event)"
+                    type="button" class="btn btn-success">Save New</button>
+            </div>
+            {{/if}}
+
+
+            <div class="col visually-hidden">
+
+                <div id="ShowSuccess" class="alert alert-success alert-dismissible fade show">
+                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span><b> Saved </b> successfully </span>
+                </div>
+            </div>
+
+            <div id="ShowFailure" class="col visually-hidden">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Duplicate!</strong> Unsuccessfull.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col visually-hidden WarningAlertColumn">
+                <div class="alert alert-warning fade show" role="alert">
+                    <strong>Warning!</strong>
+                    <p> Updated data on the server.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

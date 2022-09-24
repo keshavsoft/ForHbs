@@ -1,0 +1,39 @@
+{{#each @root as |val key|}}
+{{#switch HTMLControlType}}
+
+{{#case 'KAlert'}}
+{{> KAlert}}
+{{/case}}
+
+{{#case 'VerticalForShow'}}
+{{> Vertical/KVerticalForShow }}
+{{/case}}
+
+{{#case 'Vertical'}}
+{{> Vertical/KVertical}}
+{{/case}}
+
+{{#case 'MainTable'}}
+{{> MainTable/KTableWithCardAndSearchRow}}
+{{/case}}
+
+{{#case 'SubTable'}}
+{{> SubTable/KTableWithCardAndSearchRow}}
+{{/case}}
+
+{{#case 'Table'}}
+{{> Table/KTableWithCardAndSearchRow}}
+{{/case}}
+  
+{{#case 'TableReport'}}
+{{> Table/KTable}}
+{{/case}}
+
+{{#case 'TableFromData'}}
+{{> Table/KTableFromData}}
+{{/case}}
+
+{{#default ''}}
+{{/default}}
+{{/switch}}
+{{/each}}

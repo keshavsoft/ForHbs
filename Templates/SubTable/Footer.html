@@ -1,0 +1,28 @@
+{{#if this.KData.TableInfo.FooterType.CreateNewRow.Show}}
+<tr data-footertype="CreateNewRow" style="{{this.KData.TableInfo.FooterType.CreateNewRow.Style}}">
+    {{> SubTable/Footer/CreateNew/KTfooterCreateNewRow }}
+</tr>
+{{/if}}
+
+
+{{#if this.KData.TableInfo.FooterType.ShowTotals}}
+<tr class="table-info">
+    <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+    <td>{{this.KData.TableData.length}}</td>
+
+    {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
+    <td style="text-align:{{val1.TextAlign}}">
+        {{#if val1.ShowTotal}}
+        {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+        {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
+        {{else}}
+        {{TableColumnTotal key1 ../KData.TableData}}
+        {{/if}}
+        {{/if}}
+    </td> {{/if}} {{/each}}
+</tr>
+{{/if}}
+
+{{#if this.KData.TableInfo.FooterType.ShowBalance}}
+{{> Table/Footer/Show/BalanceRow}}
+{{/if}}

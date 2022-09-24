@@ -1,0 +1,77 @@
+<div class="{{ParentClasses.Parent1Class}}">
+    {{#if IsTextArea}}
+    <textarea kv7 id="{{DataAttribute}}" name="{{DataAttribute}}" data-dataattribute="{{DataAttribute}}"
+        class="form-control" placeholder="Enter {{DisplayName}}" autocomplete="off" value="{{DefaultValue}}"
+        style="{{HtmlAttributes.style}}" rows="4" cols="20">
+    </textarea>
+    {{else}}
+    {{#if IsSelect}}
+    <select name="{{DataAttribute}}" id="{{DataAttribute}}" class="form-select KeshavSoftSelect"
+        data-klist="{{HtmlAttributes.list}}" data-kDefaultValue="{{DefaultValue}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({inEvent:event})"
+        data-KeshavSoft="{{JSON2string KDatasetStuff}}">
+    </select>
+    {{else}}
+    {{#if EnterToServer}}
+    <input kv1 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}" type="text"
+        class="form-control KeshavSoft" value="{{DefaultValue}}" data-KeshavSoft="{{JSON2string KDatasetStuff}}"
+        onkeypress="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Vertical.KeyPress.EnterToServer({inEvent:event})"
+        placeholder="" autocomplete="off" list="{{HtmlAttributes.list}}"
+        data-DataListReverse="{{KDatasetStuff.DataListReverse}}" data-ksdatalistvalue="{{DefaultValue}}" />
+    {{else}}
+    {{#if KDataAttributes.onkeypress}}
+    <input kv2 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({ inEvent:event })"
+        type="text" class="form-control KeshavSoftonkeypress" value="{{DefaultValue}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterToServer({inEvent:event})"
+        placeholder="" autocomplete="off" list="{{HtmlAttributes.list}}"
+        data-KeshavSoft="{{JSON2string KDatasetStuff}}" />
+    {{else}}
+    {{#if KDataAttributes.CustomDataList}}
+    <input kv3 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({ inEvent:event })"
+        type="text" class="form-control KeshavSoftonkeypress" value="{{DefaultValue}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterToServer({inEvent:event})"
+        placeholder="" autocomplete="off" list="{{DataAttribute}}-datalist"
+        data-KeshavSoft="{{JSON2string KDatasetStuff}}" />
+    <datalist id="{{DataAttribute}}-datalist">
+    </datalist>
+    {{else}}
+    {{#if SaveOnEnter}}
+    <input kv4 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.SaveOnEnter({ inEvent:event })"
+        type="text" class="form-control KeshavSoftSaveOnEnter" placeholder="" autocomplete="off"
+        list="{{HtmlAttributes.list}}" />
+    {{else}}
+    {{#if HtmlAttributes.KTF}}
+    <input kv5 id="{{DataAttribute}}" name="{{DataAttribute}}" data-dataattribute="{{DataAttribute}}"
+        value="{{DefaultValue}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" type="{{KDataset.HTMLControlType}}"
+        class="{{ParentClasses.InputClass}} KeshavSoftHtmlAttributes" min="{{KDataset.Min}}" max="{{KDataset.Max}}"
+        step="{{KDataset.Step}}" placeholder="Enter {{DisplayName}}" autocomplete="off" list="{{HtmlAttributes.list}}"
+        data-KeshavSoft="{{JSON2string KDatasetStuff}}" data-ksdatalistvalue="{{DefaultValue}}"
+        data-DataListReverse="{{KDatasetStuff.DataListReverse}}" />
+    {{else}}
+    <input kv6 id="{{DataAttribute}}" name="{{DataAttribute}}" data-dataattribute="{{DataAttribute}}"
+        value="{{DefaultValue}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+        data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" type="{{KDataset.HTMLControlType}}"
+        class="{{ParentClasses.InputClass}}" min="{{KDataset.Min}}" max="{{KDataset.Max}}" step="{{KDataset.Step}}"
+        placeholder="Enter {{DisplayName}}" autocomplete="off" data-KeshavSoft="{{JSON2string KDatasetStuff}}"
+        value="{{DefaultValue}}" />
+    <div class="invalid-feedback">
+        Should not be empty!
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    {{/if}}
+
+</div>

@@ -1,0 +1,29 @@
+<td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+<td style="text-align:right"></td>
+
+{{#each this.KData.TableColumns as | val1 key1 |}}
+{{#if ShowInTable}}
+<td class="KCol-{{@index}}  {{TableClasses.ColumnClass}}" data-viewtype="{{this.ViewType}}"
+    data-showtotal="{{this.ShowTotal}}" data-editable="{{array_index_Editable this.DisplayMode.Editable}}">
+    {{#if CreateNew}}
+    {{> SubTable/Footer/CreateNew/HtmlControls }}
+    {{/if}}
+</td>
+{{/if}}
+{{/each}}
+
+{{#if this.KData.TableInfo.FooterType.SaveType.Save}}
+<td class="SaveClass">
+    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Footer.SaveFuncs.StartFunc(event)"
+        type="button" class="btn btn-outline-primary">save</button>
+</td>
+
+{{/if}}
+
+<td class="UpdateClass" style="display: none;">
+    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-primary">Update</button>
+</td>
+
+<td class="UpdateSubTableClass" style="display: none;">
+    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-success">Update</button>
+</td>

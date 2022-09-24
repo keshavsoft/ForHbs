@@ -1,0 +1,19 @@
+<div class="{{this.KData.TableInfo.ParentClasses.Parent3Class}}">
+    {{this.KData.TableInfo.DataAttributes.ItemConfig.inItemName}}
+
+    <div id="kcard1" class="card border-primary KTableDivClass {{KData.TableInfo.ParentClasses.Table.CardClass}}"
+        data-klevel={{@index}} 
+        data-localstorageid="{{KData.TableInfo.DataAttributes.localstorageid}}"
+        data-localstoragearrayindex="{{KData.TableInfo.DataAttributes.localstoragearrayindex}}"
+        data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+        data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+         data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+        data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+        <div class="card-header">
+            {{> SubTable/Search/KSearchRow}}
+        </div>
+        <div class="card-body">
+            {{> SubTable/KTable KGlobalIndex=KGlobalIndex}}
+        </div>
+    </div>
+</div>

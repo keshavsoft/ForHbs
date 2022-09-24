@@ -1,0 +1,68 @@
+{{#if KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Double}}
+<div class="col-1 d-none d-md-block">
+    <a href="#" onclick="jVarGlobalClientObject.Print.Ui.FromSearchRow({inEvent:event})"
+        class="btn btn-outline-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+            viewBox="0 0 16 16">
+            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+            <path
+                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+        </svg>
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Preview.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Preview.DisplayObject.ColClass}}">
+    <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.SearchRow.Buttons.PrintToPrinter.Preview(event)">
+        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+            <use xlink:href="#TablePrintId" />
+        </svg>
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.Footer.WithApi.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.Footer.WithApi.DisplayObject.ColClass}}">
+    <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.SearchRow.CreateNew.Footer(event)"
+        title="Add new row in the table footer" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.Footer.WithApi.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+    <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Card.Header.AddButtonClick(event)"
+        title="Add new row in new window as Vertical" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.PopUp.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.PopUp.DisplayObject.ColClass}}">
+    <a href="#" onclick="jFPopUpCreateNewForSubTable({ inEvent :event})" title="Add new row in PopUp as Vertical"
+        class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.PopUp.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.FromHtml.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.FromHtml.DisplayObject.ColClass}}">
+    <a href="#" onclick="jFCreateNewFromHtml({ inEvent :event})" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.FromHtml.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.Scrollable.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.Scrollable.DisplayObject.ColClass}}">
+    <div class="form-check form-switch">
+        <input onclick="KeshavSoftCrud.AllFuncs.Table.SearchRow.Scrollable.Click(event)" class="form-check-input"
+            type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Scrollable</label>
+    </div>
+</div>
+{{/if}}

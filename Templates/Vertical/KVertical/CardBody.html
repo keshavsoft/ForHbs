@@ -1,0 +1,14 @@
+<form href="#" class="form-horizontal needs-validation" id="kform1"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+    data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}" data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+    onsubmit="return false" novalidate>
+    <div class="row">
+        {{#each KData.TableColumns}} {{#if CreateNew}}
+        <div class="{{this.ParentClasses.Parent3Class}}">
+            <label class="{{this.ParentClasses.Parent2Class}} col-form-label">{{DisplayName}}</label>
+            {{> Vertical/KVertical/CardBody/HtmlControls}}
+        </div>
+        {{/if}} {{/each}}
+    </div>
+</form>

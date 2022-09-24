@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class=" table KTableClass table-hover {{KData.TableInfo.ParentClasses.Table.TableClass}}"
+        id="{{KData.TableInfo.TableId}}" data-KType="{{KData.TableInfo.TableKType}}"
+        data-kjsonfilename="{{KData.TableInfo.TableKJsonFileName}}" data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+        data-queryname="{{KData.TableInfo.DataAttributes.QueryName}}" data-KGlobalIndex="{{KGlobalIndex}}"
+        data-jsonType="{{KData.TableInfo.DataAttributes.JsonType}}"
+        data-jsonItemName="{{KData.TableInfo.DataAttributes.JsonItemName}}"
+        data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}"
+        data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+        data-ShowType="{{KData.TableInfo.DataAttributes.ShowType}}">
+        <thead>
+            {{> Table/Head/KThead }}
+        </thead>
+        <tbody>
+            {{> Table/Body/KTablebody }}
+        </tbody>
+        <tfoot>
+            {{#if KData.TableInfo.ShowFooter}} {{> Table/Footer }} {{/if}}
+        </tfoot>
+    </table>
+</div>
