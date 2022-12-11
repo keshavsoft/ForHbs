@@ -1,0 +1,11 @@
+{{#each this.KData.TableData as |val key|}}
+
+{{#if ../KData.TableInfo.DataAttributesFromTableInfo }}
+{{> MainTable/Body/Row/NormalFromTableInfo inTableColumns=../KData.TableColumns inTableInfo=../KData.TableInfo this=this}}
+{{/if}}
+
+{{#if ../KData.TableInfo.DataAttributesFromTableDataRow }}
+{{> Table/Body/Row/NormalFromTableDataRow  inTableColumns=../KData.TableColumns  inTableInfo=../KData.TableInfo}}
+{{/if}}
+
+{{/each}}

@@ -5,18 +5,14 @@
 {{/if}}
 
 {{#if this.KData.TableInfo.FooterType.ShowTotals}}
-<tr MainTableShowTotals class="table-info">
+<tr ReportTableShowTotals class="table-info">
     <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
     <td>{{this.KData.TableData.length}}</td>
 
     {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
     <td style="text-align:{{val1.TextAlign}}">
         {{#if val1.ShowTotal}}
-        {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
-        {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
-        {{else}}
-        {{TableColumnTotal key1 ../KData.TableData}}
-        {{/if}}
+            {{TableFooterShowTotal (TableColumnTotal key1 ../KData.TableData)}}
         {{/if}}
     </td> {{/if}} {{/each}}
 </tr>
