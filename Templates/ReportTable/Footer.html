@@ -11,9 +11,7 @@
 
     {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
     <td style="text-align:{{val1.TextAlign}}">
-        {{#if val1.ShowTotal}}
-            {{TableFooterShowTotal (TableColumnTotal key1 ../KData.TableData)}}
-        {{/if}}
+        {{TableFooterShowTotal val1 key1 ../KData.TableColumns ../KData.TableData}}
     </td> {{/if}} {{/each}}
 </tr>
 {{/if}}

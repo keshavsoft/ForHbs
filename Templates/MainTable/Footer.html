@@ -12,11 +12,11 @@
     {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
     <td style="text-align:{{val1.TextAlign}}">
         {{#if val1.ShowTotal}}
-        {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
-        {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
-        {{else}}
-        {{TableColumnTotal key1 ../KData.TableData}}
-        {{/if}}
+            {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+                {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
+            {{else}}
+                {{TableColumnTotal key1 ../KData.TableData}}
+            {{/if}}
         {{/if}}
     </td> {{/if}} {{/each}}
 </tr>
