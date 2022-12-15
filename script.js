@@ -482,11 +482,11 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
     <td style="text-align:{{val1.TextAlign}}">
         {{#if val1.ShowTotal}}
-        {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
-        {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
-        {{else}}
-        {{TableColumnTotal key1 ../KData.TableData}}
-        {{/if}}
+            {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+                {{ShowInIndianDateFormat (TableColumnTotal key1 ../KData.TableData)}}
+            {{else}}
+                {{TableColumnTotal key1 ../KData.TableData}}
+            {{/if}}
         {{/if}}
     </td> {{/if}} {{/each}}
 </tr>
@@ -1104,9 +1104,7 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
     {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
     <td style="text-align:{{val1.TextAlign}}">
-        {{#if val1.ShowTotal}}
-            {{TableFooterShowTotal (TableColumnTotal key1 ../KData.TableData)}}
-        {{/if}}
+        {{TableFooterShowTotal val1 key1 ../KData.TableColumns ../KData.TableData}}
     </td> {{/if}} {{/each}}
 </tr>
 {{/if}}
@@ -2676,8 +2674,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     {{#if KDataAttributes.onkeypress}}
     <input kVertical2 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
         data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}"
-        onkeypress="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Vertical.KeyPress.EnterOnClient({ inEvent:event })"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterOnClient({ inEvent:event })"
         type="text" class="form-control KeshavSoftonkeypress" value="{{DefaultValue}}"
+        onkeypress="jVarGlobalClientObject.Api.UserData.Table.Footer.KeyPress.EnterToServer({inEvent:event})"
         placeholder="" autocomplete="off" list="{{HtmlAttributes.list}}"
         data-KeshavSoft="{{JSON2string KDatasetStuff}}" />
     {{else}}
