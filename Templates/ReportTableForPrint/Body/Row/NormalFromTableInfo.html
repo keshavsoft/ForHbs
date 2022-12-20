@@ -1,0 +1,15 @@
+<tr class="KTableRow {{this.RowClass}}" data-klevel="{{Table_KLevel inTableInfo.KLevel}}"
+    data-pk="{{array_value_indexret inTableColumns inTableInfo.kPK this.DisplayText}}"
+    data-details="{{array_value_indexret inTableColumns inTableInfo.kDetails this.DisplayText}}"
+    data-kjsonfilename="{{this.TableKJsonFileName}}">
+
+    <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+    <td style="text-align:right">{{array_index_sno @index}}</td>
+    {{#each DisplayText as | val1 key1 |}}
+    {{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'ShowInTable')}}
+
+    {{> ReportTableForPrint/Body/Row/KTCellValue}}
+    
+    {{/if}} {{/each}}
+</tr>
+

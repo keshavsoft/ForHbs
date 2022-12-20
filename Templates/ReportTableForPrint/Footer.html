@@ -1,0 +1,15 @@
+{{#if this.KData.TableInfo.FooterType.ShowTotals}}
+<tr ReportTableShowTotals class="table-info">
+    <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+    <td>{{this.KData.TableData.length}}</td>
+
+    {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
+    <th style="text-align:{{val1.TextAlign}}">
+        {{TableFooterShowTotal val1 key1 ../KData.TableColumns ../KData.TableData}}
+    </th> {{/if}} {{/each}}
+</tr>
+{{/if}}
+
+{{#if this.KData.TableInfo.FooterType.ShowBalance}}
+{{> ReportTableForPrint/Footer/Show/BalanceRow}}
+{{/if}}
