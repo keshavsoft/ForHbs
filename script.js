@@ -3023,12 +3023,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
         <div class="row">
             {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
             <div class="col">
-                <button 
-                    onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Vertical.SaveFuncs.StartFunc(event)"
-                    type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
+                <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
             </div>
             {{/if}}
-
 
             <div class="col visually-hidden">
 
