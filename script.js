@@ -242,9 +242,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
 {{#if this.PrintToPrinter.Double}}
 <td class="ButtonClass">
-    <a href="#" class="MainTable Body Row Options Print" data-jsonconfig="{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}}"
-    data-itemconfig = "{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}}"
-      >
+    <a href="#" class="MainTable Body Row Options Print"
+        data-jsonconfig="{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'JsonConfig'}}"
+        data-itemconfig="{{lookup (lookup (lookup (lookup (lookup @root @../key) 'KData') 'TableInfo') 'DataAttributes') 'ItemConfig'}}">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
             viewBox="0 0 16 16">
             <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
@@ -271,8 +271,7 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
 {{#if this.Show.Rowshow}}
 <td MainTable class="ButtonClass">
-    <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Body.Row.ShowClick({ inEvent :event})"
-        style="color: forestgreen;">
+    <a href="#" class="KMainTableBodyRowShowButtonClass" style="color: forestgreen;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-arrow-right-square" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -309,8 +308,6 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     </a>
 </td>
 {{/if}}
-
-
 </script>
 <script id="MainTable/Body/Row/NormalFromTableDataRow"  KS="KeshavSoft" type="text/x-handlebars-template">
 <tr class="KTableRow {{this.RowClass}}" data-klevel="{{Table_KLevel inTableInfo.KLevel}}"
