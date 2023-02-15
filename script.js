@@ -3074,13 +3074,13 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
         <div class="card-footer">
             <div class="row">
                 <div class="col-1 visually-hidden UpdateButtonColumn">
-                    <button class="btn btn-outline-primary UpdateButton " type="button"
-                        onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Vertical.Footer.Update.StartFunc({inEvent:event})">
+                    <button class="btn btn-outline-primary UpdateButton KeshavSoftUpdateButtonClickClass"
+                     type="button">
                         Update</button>
                 </div>
                 <div class="col-1 EditButtonColumn">
-                    <button class="btn btn-outline-primary EditButton" type="button"
-                        onclick="jVarGlobalClientObject.Api.UserData.Vertical.Footer.Edit.StartFunc({inEvent:event})"><svg
+                    <button class="btn btn-outline-primary EditButton KeshavSoftButtonClickClass"
+                     type="button"><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-pencil-fill" viewBox="0 0 16 16">
                             <path
