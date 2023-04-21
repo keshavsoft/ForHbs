@@ -439,18 +439,18 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
 {{#if this.KData.TableInfo.FooterType.SaveType.Save}}
 <td class="SaveClass">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.MainTable.Footer.SaveFuncs.StartFunc(event)"
-        type="button" class="btn btn-outline-primary">save</button>
+    <button type="button" class="btn btn-outline-primary MainTableFooterCreateNewSaveClass">save</button>
 </td>
-
 {{/if}}
 
 <td class="UpdateClass" style="display: none;">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-primary">Update</button>
+    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Update({inEvent:event})" type="button"
+        class="btn btn-outline-primary">Update</button>
 </td>
 
 <td class="UpdateSubTableClass" style="display: none;">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-success">Update</button>
+    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Update({inEvent:event})"
+        type="button" class="btn btn-outline-success">Update</button>
 </td>
 </script>
 <script id="MainTable/Footer/Show/BalanceRow"  KS="KeshavSoft" type="text/x-handlebars-template">
