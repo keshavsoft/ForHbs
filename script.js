@@ -2852,9 +2852,8 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     {{#if EnterToServer}}
     <input kv1 id="{{DataAttribute}}" name="{{DataAttribute}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
         data-EnterOnClient="{{KDataAttributes.EnterOnClient}}" data-dataattribute="{{DataAttribute}}" type="text"
-        class="form-control KeshavSoft" value="{{DefaultValue}}" data-KeshavSoft="{{JSON2string KDatasetStuff}}"
-        onkeypress="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Vertical.KeyPress.EnterToServer({inEvent:event})"
-        placeholder="" autocomplete="off" list="{{HtmlAttributes.list}}"
+        class="form-control KeshavSoft KeshavSoftEnterToServer" value="{{DefaultValue}}" data-KeshavSoft="{{JSON2string KDatasetStuff}}"
+        autocomplete="off" list="{{HtmlAttributes.list}}"
         data-DataListReverse="{{KDatasetStuff.DataListReverse}}" data-ksdatalistvalue="{{DefaultValue}}" />
     {{else}}
     {{#if KDataAttributes.onkeypress}}
