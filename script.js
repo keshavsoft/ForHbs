@@ -3037,11 +3037,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     </div>
     <div class="card-footer">
         <div class="row">
-            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
             <div class="col">
                 <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
             </div>
-            {{/if}}
 
             <div class="col visually-hidden">
 
@@ -3420,11 +3418,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     </div>
     <div class="card-footer">
         <div class="row">
-            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
             <div class="col">
                 <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
             </div>
-            {{/if}}
 
             <div class="col visually-hidden">
 
