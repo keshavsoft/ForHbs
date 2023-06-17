@@ -3065,12 +3065,12 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 </script>
 <script id="Vertical/KVerticalForShow"  KS="KeshavSoft" type="text/x-handlebars-template">
 <div class="{{KData.TableInfo.ParentClasses.Parent3Class}}">
-    <div KVerticalForShow class="card KTableDivClass d-print-none" data-pk="{{KData.TableInfo.kPK}}"
+    <div KVerticalForShow class="card KTableDivClass" data-pk="{{KData.TableInfo.kPK}}"
         data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
         data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
         data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
         data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
-        <div class="card-header ">
+        <div class="card-header d-print-none">
             {{> Vertical/KVertical/CardHeader/Search/KSearchRow}}
         </div>
         <div class="card-body KCardBody">
