@@ -2986,8 +2986,8 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 {{/if}}
 
 {{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
-<div class="col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
-    <a href="#" onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Card.Header.AddButtonClick(event)"
+<div class="CardHeaderButtons col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+    <a href="#" 
         title="Add new row in new window as Vertical" class="btn btn-outline-primary">
         {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
     </a>
