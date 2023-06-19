@@ -1745,9 +1745,7 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
 {{#if this.Edit.SubTableRowEdit}}
 <td class="ButtonClass">
-    <a href="#"
-        onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Edit.ButtonClick({inEvent:event})"
-        style="color: brown;">
+    <a href="#" class="SubTableFooterBodyRowEditClass" style="color: brown;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
             viewBox="0 0 16 16">
             <path
@@ -1887,18 +1885,13 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 
 {{#if this.KData.TableInfo.FooterType.SaveType.Save}}
 <td class="SaveClass">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Footer.SaveFuncs.StartFunc(event)"
-        type="button" class="btn btn-outline-primary">save</button>
+    <button type="button" class="btn btn-outline-primary SubTableFooterCreateNewRowSaveButtonClass">save</button>
 </td>
 
 {{/if}}
 
-<td class="UpdateClass" style="display: none;">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-primary">Update</button>
-</td>
-
 <td class="UpdateSubTableClass" style="display: none;">
-    <button onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.Body.Row.Update({inEvent:event})" type="button" class="btn btn-outline-success">Update</button>
+    <button type="button" class="btn btn-outline-success SubTableFooterBodyRowUpdateClass">Update</button>
 </td>
 </script>
 <script id="SubTable/Footer/Show/BalanceRow"  KS="KeshavSoft" type="text/x-handlebars-template">
@@ -3036,11 +3029,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     </div>
     <div class="card-footer">
         <div class="row">
-            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
             <div class="col">
                 <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
             </div>
-            {{/if}}
 
             <div class="col visually-hidden">
 
@@ -3074,12 +3065,12 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 </script>
 <script id="Vertical/KVerticalForShow"  KS="KeshavSoft" type="text/x-handlebars-template">
 <div class="{{KData.TableInfo.ParentClasses.Parent3Class}}">
-    <div KVerticalForShow class="card KTableDivClass d-print-none" data-pk="{{KData.TableInfo.kPK}}"
+    <div KVerticalForShow class="card KTableDivClass" data-pk="{{KData.TableInfo.kPK}}"
         data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
         data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
         data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
         data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
-        <div class="card-header ">
+        <div class="card-header d-print-none">
             {{> Vertical/KVertical/CardHeader/Search/KSearchRow}}
         </div>
         <div class="card-body KCardBody">
@@ -3419,11 +3410,9 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     </div>
     <div class="card-footer">
         <div class="row">
-            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
             <div class="col">
                 <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
             </div>
-            {{/if}}
 
             <div class="col visually-hidden">
 
