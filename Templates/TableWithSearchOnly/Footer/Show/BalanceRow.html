@@ -1,0 +1,15 @@
+<tr class="table-info">
+    <td style="text-align:right; display:none" class="kClassSearchSNo"></td>
+    <td></td>
+
+    {{#each this.KData.TableColumns as |val1 key1|}} {{#if val1.ShowInTable}}
+    <th style="text-align:{{val1.TextAlign}}">
+        {{#if val1.Footer.Show.Balance.ShowTF}}
+        {{#if (IsIndianDateFormat ../KData.TableColumns key1) }}
+        {{ShowInIndianDateFormatPositiveOnly (TableColumnBalance key1 ../KData.TableData ../KData.TableColumns)}}
+        {{else}}
+        {{TableColumnBalance key1 ../KData.TableData ../KData.TableColumns}}
+        {{/if}}
+        {{/if}}
+    </th> {{/if}} {{/each}}
+</tr>

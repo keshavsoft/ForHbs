@@ -1,0 +1,13 @@
+<div class="table-responsive">
+    <table class=" table KTableClass table-hover">
+        <thead>
+            {{> TableWithSearchOnly/Head/KThead }}
+        </thead>
+        <tbody>
+            {{> TableWithSearchOnly/Body/KTablebody }}
+        </tbody>
+        <tfoot>
+            {{#if KData.TableInfo.ShowFooter}} {{> TableWithSearchOnly/Footer }} {{/if}}
+        </tfoot>
+    </table>
+</div>

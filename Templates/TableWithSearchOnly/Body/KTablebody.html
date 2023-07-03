@@ -1,0 +1,3 @@
+{{#each this.KData.TableData as |val key|}}
+{{> ReportTableForPrint/Body/Row/NormalFromTableInfo inTableColumns=../KData.TableColumns inTableInfo=../KData.TableInfo this=this}}
+{{/each}}
