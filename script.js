@@ -64,7 +64,7 @@
 {{/case}}
 
 {{#case 'TableWithSearchOnly'}}
-{{> TableWithSearchOnly/KTable}}
+{{> TableWithSearchOnly/KTableWithCardAndSearchRow}}
 {{/case}}
 
 {{#case 'ReportTableForPrint'}}
@@ -199,25 +199,31 @@
 
 </script>
 <script id="MainTable/Body/Row/KTCellValue"  KS="KeshavSoft" type="text/x-handlebars-template">
+{{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'Insert')}}
 <td class="KCol-{{@index}}" data-kcol={{@index}}
-style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
-{{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsInput') }}
-<input ksr2 class="form-control" type="text"
-    name="{{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DataAttribute'}}"
-    list="{{lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'HtmlAttributes') 'list'}}"
-    data-KeshavSoft="{{JSON2string (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'KDatasetStuff')}}"
-    data-ksdatalistvalue="{{CellValue}}"
-    value="{{CellValue}}">
-{{else}}
-{{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsIndianFormat') }}
-{{ShowInIndianDateFormat CellValue}}
-{{else}}
-{{CellValue}}
-{{/if}}
-
+    style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key)
+    'DisplayType') 'IsInput') }}
+    <input ksr2 class="form-control" type="text"
+        name="{{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DataAttribute'}}"
+        list="{{lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'HtmlAttributes') 'list'}}"
+        data-KeshavSoft="{{JSON2string (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'KDatasetStuff')}}"
+        data-ksdatalistvalue="{{CellValue}}" value="{{CellValue}}">
+    {{else}}
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key)
+    'DisplayType') 'IsIndianFormat') }}
+    {{ShowInIndianDateFormat CellValue}}
+    {{else}}
+    {{CellValue}}
+    {{/if}}
+    {{/if}}
+    {{else}}
+<td data-kcol={{@index}}
+    style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
+    {{CellValue}}
+</td>
 {{/if}}
 </td>
-
 </script>
 <script id="MainTable/Body/Row/KTbodyRowOptions"  KS="KeshavSoft" type="text/x-handlebars-template">
 {{#if this.Delete.Simple}}
@@ -348,7 +354,7 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
     {{#each DisplayText as | val1 key1 |}}
     {{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'ShowInTable')}}
 
-    {{> Table/Body/Row/KTCellValue}}
+    {{> MainTable/Body/Row/KTCellValue}}
     
     {{/if}} {{/each}}
 
@@ -2884,23 +2890,22 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 </script>
 <script id="TableWithSearchOnly/Search/KSearchRow"  KS="KeshavSoft" type="text/x-handlebars-template">
 <div class="row">
-    <div class="col-{{KData.TableInfo.SearchRowArray.Label.DisplayObject.ColClass}}">
+    <div class="col">
         <h5 style="margin-left: 7px; margin-top:10px; text-align:left;">
             {{KData.TableInfo.SearchRowArray.Label.DisplayObject.DisplayText}}
         </h5>
     </div>
-    <div class="col-{{KData.TableInfo.SearchRowArray.Search.DisplayObject.ColClass}}">
+    <div class="col">
         <div class="input-group">
             <span class="input-group-text text-body"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path
                         d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                 </svg></span>
-            <input type="text" class="form-control" placeholder="Type here..."
-                onkeyup="KeshavSoftCrud.AllFuncs.Table.SearchRow.SearchFuncs.SearchAllRows(event)">
+            <input type="text" class="form-control TableWithSearchOnlyCardHeaderSearchKeyPress" placeholder="Type here...">
         </div>
     </div>
-    <div class="col-{{KData.TableInfo.SearchRowArray.SearchWithEnter.DisplayObject.ColClass}}">
+    <div class="col">
         <div class="input-group no-border">
             <span class="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -2915,11 +2920,8 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
                 </svg>
             </span>
 
-            <input type="text" value="" class="form-control KClassTableSearchTxt"
-                data-ServerAPIURL="{{this.KServerAPIURL}}"
-                placeholder="{{KData.TableInfo.SearchRowArray.SearchWithEnter.DisplayObject.DisplayText}}"
-                onkeyup="KeshavSoftCrud.AllFuncs.Table.SearchRow.SearchFuncs.SearchWithEnter(event)">
-
+            <input type="text" value="" class="form-control KClassTableSearchTxt TableWithSearchOnlyCardHeaderSearchWithEnter"
+                placeholder="{{KData.TableInfo.SearchRowArray.SearchWithEnter.DisplayObject.DisplayText}}">
         </div>
     </div>
 </div>
