@@ -1,18 +1,25 @@
+{{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'Insert')}}
 <td class="KCol-{{@index}}" data-kcol={{@index}}
-style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
-{{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsInput') }}
-<input ksr2 class="form-control" type="text"
-    name="{{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DataAttribute'}}"
-    list="{{lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'HtmlAttributes') 'list'}}"
-    data-KeshavSoft="{{JSON2string (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'KDatasetStuff')}}"
-    data-ksdatalistvalue="{{CellValue}}"
-    value="{{CellValue}}">
-{{else}}
-{{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DisplayType') 'IsIndianFormat') }}
-{{ShowInIndianDateFormat CellValue}}
-{{else}}
-{{CellValue}}
-{{/if}}
-
+    style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key)
+    'DisplayType') 'IsInput') }}
+    <input ksr2 class="form-control" type="text"
+        name="{{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'DataAttribute'}}"
+        list="{{lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'HtmlAttributes') 'list'}}"
+        data-KeshavSoft="{{JSON2string (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'KDatasetStuff')}}"
+        data-ksdatalistvalue="{{CellValue}}" value="{{CellValue}}">
+    {{else}}
+    {{#if (lookup (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key)
+    'DisplayType') 'IsIndianFormat') }}
+    {{ShowInIndianDateFormat CellValue}}
+    {{else}}
+    {{CellValue}}
+    {{/if}}
+    {{/if}}
+    {{else}}
+<td data-kcol={{@index}}
+    style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'TextAlign'}}">
+    {{CellValue}}
+</td>
 {{/if}}
 </td>

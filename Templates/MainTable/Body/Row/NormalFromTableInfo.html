@@ -8,7 +8,7 @@
     {{#each DisplayText as | val1 key1 |}}
     {{#if (lookup (lookup (lookup (lookup (lookup @root @../../key) 'KData') 'TableColumns') @key) 'ShowInTable')}}
 
-    {{> Table/Body/Row/KTCellValue}}
+    {{> MainTable/Body/Row/KTCellValue}}
     
     {{/if}} {{/each}}
 
