@@ -55,6 +55,10 @@
 {{> Vertical/KVertical}}
 {{/case}}
 
+{{#case 'VerticalSimple'}}
+{{> VerticalSimple/KVertical}}
+{{/case}}
+
 {{#case 'VerticalToShow'}}
 {{> VerticalToShow/KVertical}}
 {{/case}}
@@ -3294,6 +3298,330 @@ style="text-align: {{lookup (lookup (lookup (lookup (lookup @root @../../key) 'K
 </div>
 </script>
 <script id="Vertical/KVerticalForShow"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div class="{{KData.TableInfo.ParentClasses.Parent3Class}}">
+    <div KVerticalForShow class="card KTableDivClass" data-pk="{{KData.TableInfo.kPK}}"
+        data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+        data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+        data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+        data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+        <div class="card-header d-print-none">
+            {{> Vertical/KVertical/CardHeader/Search/KSearchRow}}
+        </div>
+        <div class="card-body KCardBody">
+            <form class="form-horizontal" id="kform1">
+                <fieldset disabled>
+                    {{> Vertical/KVertical/CardBody}}
+                </fieldset>
+            </form>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-1 visually-hidden UpdateButtonColumn">
+                    <button class="btn btn-outline-primary UpdateButton KeshavSoftUpdateButtonClickClass"
+                     type="button">
+                        Update</button>
+                </div>
+                <div class="col-1 EditButtonColumn">
+                    <button class="btn btn-outline-primary EditButton KeshavSoftButtonClickClass"
+                     type="button"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                        </svg></button>
+                </div>
+
+                <div class="col-1 offset-md-10 offset-9">
+                    <button class="btn btn-outline-primary" type="button"
+                        onclick="JVarGlobalAPICalls.Vertical.Delete.jFDeletes({inEvent:event})"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-trash" viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                            <path fill-rule="evenodd"
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                        </svg></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col visually-hidden SuccessAlertColumn">
+                    <div class="alert alert-warning fade show" role="alert">
+                        <strong>Success!</strong> Updated data on the server.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col visually-hidden WarningAlertColumn">
+                    <div class="alert alert-warning fade show" role="alert">
+                        <strong>Warning!</strong>
+                        <p> Updated data on the server.</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="VerticalSimple/KPopUp"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div class="card KTableDivClass" data-pk="{{KData.TableInfo.PK}}"
+    data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+    data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+    <div class="card-header">
+        {{#if KData.TableInfo.SearchRowArray.Label.KTF}}
+        <h4>{{KData.TableInfo.SearchRowArray.Label.DisplayObject.DisplayText}}</h4>
+        {{/if}}
+    </div>
+    <div class="card-body KCardBody">
+        {{> Vertical/KVertical/CardBody}}
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
+            <div class="col">
+                <button
+                    onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Table.PopUp.SaveFuncs.StartFunc(event)"
+                    type="button" class="btn btn-primary">Save New</button>
+            </div>
+            {{/if}}
+
+            <div class="col visually-hidden">
+                <div id="ShowSuccess" class="alert alert-success alert-dismissible fade show">
+                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span><b> Saved </b> successfully </span>
+                </div>
+            </div>
+
+            <div id="ShowFailure" class="col visually-hidden">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Duplicate!</strong> Unsuccessfull.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="VerticalSimple/KPopUpForSubTable"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div class="card KTableDivClass" data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+    data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+    data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}">
+    <div class="card-header">
+        {{#if KData.TableInfo.SearchRowArray.Label.KTF}}
+        <h4>{{KData.TableInfo.SearchRowArray.Label.DisplayObject.DisplayText}}</h4>
+        {{/if}}
+    </div>
+    <div class="card-body KCardBody">
+        {{> Vertical/KVertical/CardBody}}
+    </div>
+    <div class="card-footer">   
+        <div class="row">
+            {{#if KData.TableInfo.Vertical.VerticalCreate.saveFromKeyAsTree}}
+            <div class="col">
+                <button
+                    onclick="jVarGlobalKeshavSoftLocalFuncsObject.ApiFuncs.Subtable.PopUp.SaveFuncs.StartFunc(event)"
+                    type="button" class="btn btn-primary">Save New</button>
+            </div>
+            {{/if}}
+
+            <div class="col visually-hidden">
+                <div id="ShowSuccess" class="alert alert-success alert-dismissible fade show">
+                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span><b> Saved </b> successfully </span>
+                </div>
+            </div>
+
+            <div id="ShowFailure" class="col visually-hidden">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Duplicate!</strong> Unsuccessfull.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="VerticalSimple/KVertical/CardBody/HtmlControls"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div class="{{ParentClasses.Parent1Class}}">
+    <input kvs1 id="{{DataAttribute}}" name="{{DataAttribute}}" data-dataattribute="{{DataAttribute}}"
+    value="{{DefaultValue}}" data-ClientEval="{{KDataAttributes.ClientEval}}"
+    type="{{KDataset.HTMLControlType}}"
+    class="{{ParentClasses.InputClass}} KeshavSoftHtmlAttributes" min="{{KDataset.Min}}" max="{{KDataset.Max}}"
+    step="{{KDataset.Step}}" placeholder="Enter {{DisplayName}}" autocomplete="off" list="{{HtmlAttributes.list}}"
+    data-KeshavSoft="{{JSON2string KDatasetStuff}}" data-ksdatalistvalue="{{DefaultValue}}"
+    data-DataListReverse="{{KDatasetStuff.DataListReverse}}" />
+</div>
+</script>
+<script id="VerticalSimple/KVertical/CardBody"  KS="KeshavSoft" type="text/x-handlebars-template">
+<form href="#" class="form-horizontal needs-validation" id="kform1"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}"
+    data-InsertKey="{{KData.TableInfo.DataAttributes.InsertKey}}" data-pk="{{KData.TableInfo.DataAttributes.PK}}"
+    onsubmit="return false" novalidate>
+    <div class="row">
+        {{#each KData.TableColumns}} {{#if CreateNew}}
+        <div class="{{this.ParentClasses.Parent3Class}}">
+            <label class="{{this.ParentClasses.Parent2Class}} col-form-label">{{DisplayName}}</label>
+            {{> VerticalSimple/KVertical/CardBody/HtmlControls}}
+        </div>
+        {{/if}} {{/each}}
+    </div>
+</form>
+</script>
+<script id="VerticalSimple/KVertical/CardHeader/Search/KSearchRow"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div class="row">
+    <div class="col-1">
+        <a href="{{HrefToMainToggles  this.KData.TableInfo.DataAttributes}}"
+            href1="http://localhost:4119/JSONAdminApi/Html/Admin/Columns/Tabular/Alter/Toggles.html"
+            target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-gear" viewBox="0 0 16 16">
+                <path
+                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                <path
+                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+            </svg></a>
+    </div>
+
+    {{#if KData.TableInfo.SearchRowArray.Label.KTF}}
+    <div class="col-{{KData.TableInfo.SearchRowArray.Label.DisplayObject.ColClass}}">
+        <h5 style="margin-left: 7px; margin-top:10px; text-align:left;">
+            {{KData.TableInfo.SearchRowArray.Label.DisplayObject.DisplayText}}
+        </h5>
+
+    </div>
+    {{/if}}
+
+    {{> VerticalSimple/KVertical/CardHeader/Search/KSearchWithButtons}}
+</div>
+</script>
+<script id="VerticalSimple/KVertical/CardHeader/Search/KSearchWithButtons"  KS="KeshavSoft" type="text/x-handlebars-template">
+{{#if KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Double}}
+<div class="col-1 d-none d-md-block">
+    <a href="#" onclick="jVarGlobalClientObject.Print.Ui.FromSearchRow({inEvent:event})"
+        class="btn btn-outline-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer"
+            viewBox="0 0 16 16">
+            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+            <path
+                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+        </svg>
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Preview.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.PrintToPrinter.Preview.DisplayObject.ColClass}}">
+    <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.SearchRow.Buttons.PrintToPrinter.Preview(event)">
+        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+            <use xlink:href="#TablePrintId" />
+        </svg>
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.Footer.WithApi.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.Footer.WithApi.DisplayObject.ColClass}}">
+    <a href="#" onclick="jVarGlobalClientObject.Api.UserData.Table.SearchRow.CreateNew.Footer(event)"
+        title="Add new row in the table footer" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.Footer.WithApi.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.NewWindow.KTF}}
+<div class="CardHeaderButtons col-{{KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject.ColClass}}">
+    <a href="#" 
+        title="Add new row in new window as Vertical" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.NewWindow.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.PopUp.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.PopUp.DisplayObject.ColClass}}">
+    <a href="#" onclick="jFPopUpCreateNew({ inEvent :event})" title="Add new row in PopUp as Vertical"
+        class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.PopUp.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.FromHtml.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.FromHtml.DisplayObject.ColClass}}">
+    <a href="#" onclick="jFCreateNewFromHtml({ inEvent :event})" class="btn btn-outline-primary">
+        {{> Bs5/Icons/Svg this.KData.TableInfo.SearchRowArray.Button.FromHtml.DisplayObject}}
+    </a>
+</div>
+{{/if}}
+
+{{#if KData.TableInfo.SearchRowArray.Button.Scrollable.KTF}}
+<div class="col-{{KData.TableInfo.SearchRowArray.Button.Scrollable.DisplayObject.ColClass}}">
+    <div class="form-check form-switch">
+        <input onclick="KeshavSoftCrud.AllFuncs.Table.SearchRow.Scrollable.Click(event)" class="form-check-input"
+            type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Scrollable</label>
+    </div>
+</div>
+{{/if}}
+
+</script>
+<script id="VerticalSimple/KVertical"  KS="KeshavSoft" type="text/x-handlebars-template">
+<div KVertical class="card KTableDivClass d-print-none"
+    data-jsonconfig="{{KData.TableInfo.DataAttributes.JsonConfig}}"
+    data-ItemConfig="{{KData.TableInfo.DataAttributes.ItemConfig}}">
+    <div class="card-header">
+        {{> VerticalSimple/KVertical/CardHeader/Search/KSearchRow}}
+    </div>
+    <div class="card-body KCardBody">
+        {{> VerticalSimple/KVertical/CardBody}}
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success KVerticalFooterSaveButtonClass">Save New</button>
+            </div>
+
+            <div class="col visually-hidden">
+
+                <div id="ShowSuccess" class="alert alert-success alert-dismissible fade show">
+                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span><b> Saved </b> successfully </span>
+                </div>
+            </div>
+
+            <div id="ShowFailure" class="col visually-hidden">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Duplicate!</strong> Unsuccessfull.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col visually-hidden WarningAlertColumn">
+                <div class="alert alert-warning fade show" role="alert">
+                    <strong>Warning!</strong>
+                    <p> Updated data on the server.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="VerticalSimple/KVerticalForShow"  KS="KeshavSoft" type="text/x-handlebars-template">
 <div class="{{KData.TableInfo.ParentClasses.Parent3Class}}">
     <div KVerticalForShow class="card KTableDivClass" data-pk="{{KData.TableInfo.kPK}}"
         data-KeyAsTree="{{KData.TableInfo.DataAttributes.KeyAsTree}}"
